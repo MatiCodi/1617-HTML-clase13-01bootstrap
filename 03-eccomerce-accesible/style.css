@@ -1,0 +1,268 @@
+/* Fonts */
+/* con fontface podemos incluir fuentes personalizadas que tengamos en nuestra maquina */
+
+@font-face {
+    /* el font-family es como un alias, puede llamarse como queramos*/
+    font-family:"Rust Regular";
+    /* los src linkean a dibde tenga la fuente... trate de tenerla en la carpeta assets asi sube y mantiene la ruta relativa*/
+    src:
+        url("./assets/Rust_Regular/Rust.eot") format("eot"),
+        url("./assets/Rust_Regular/Rust.woff") format("woff"),
+        url("./assets/Rust_Regular/Rust.ttf") format("truetype"),
+        url("./assets/Rust_Regular/Rust.svg") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,300&display=swap');
+
+/* colors*/
+:root {
+    --main-black-color: #264653;
+    --main-green-color: #2a9d8f;
+    --main-yellow-color: #e9c46a;
+    --main-orange-color: #f4a261;
+    --main-red-color:#e76f51;
+    
+
+}
+/* resets*/
+*{
+    margin: 0;
+    padding: 1%;
+}
+body {
+    background-color: var(--main-black-color);
+    color:var(--main-yellow-color);
+}
+h1 {
+    font-family: "Rust Regular", sans-serif;
+    font-size: 1.5em;
+}
+p, li, button{
+    font-family: "Exo 2" sans-serif;
+
+}
+
+/* header/navbar*/
+
+header {
+    display: flex;
+    align-content: space-between;
+    background-color: var(--main-red-color);
+    padding: 8%;
+    margin: -2%;
+}
+header a {
+    text-decoration: none;
+    color: var(--main-green-color);
+    font-size: 1.7em;
+}
+.menu {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: var(--main-orange-color);
+    min-width: 160px;
+    padding: 12px 16px;
+    z-index: 5;
+    top: 35px;
+    /* para que la hamburguesa quede a la derecha*/
+    right: -30px; 
+}
+.menu:hover .dropdown{
+    display: block;
+}
+.dropdown li {
+    list-style: none;
+}
+/*nav oculta*/
+.inlinelist {
+    display: none;
+}
+
+/* cuerpo */
+.description {
+    margin-top: 5%;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    text-align: center;
+    margin: auto;
+}
+main img {
+    height: 150px;
+}
+/* product*/
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10% 0;
+    border: 2px solid var var(--main-black-color);
+    padding: 3%;
+    box-shadow: 4px 4px 6px 1px var(--main-green-color);
+}
+.imgContainer, .newArrivalContainer{
+    position: relative;
+}
+.newArrivalContainer{
+    z-index: 10;
+}
+.newArrivalContainer .sticker {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    background: url('./assets/sticker.png ') no-repeat;
+    background-size: 75px;
+    filter: hue-rotate(205deg);
+    top: -35px;
+    right: -160px;
+    animation: spin 15s linear infinite;
+}
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+.newArrivalContainer .msg {
+    color: var(--main-green-color);
+    text-align: center;
+    font-family: 'Rust Regular';
+    font-size: 1.5em;
+    width: 75px;
+    position: absolute;
+    margin: -14px 0 0 93px;
+}
+
+.imgContainer{
+    position: relative;
+}
+.imgContainer .heart {
+    position: absolute;
+    top: 6%;
+    right: 9%;
+    font-size: 1.5em;
+    box-shadow: 4px 4px 6px 1px var(--main-black-color);
+}
+.product button,
+.product button :visited {
+    margin: 5% 0;
+    width: 90%;
+    background-color: var(--main-yellow-color);
+    border-radius: 15%;
+    border: 2px solid var var(--main-black-color);
+    cursor: pointer;
+    padding: 4% 15%;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 800;
+
+}
+.product button:hover{
+    animation: incolorhover 1s ease forwards 1;
+}
+@keyframes incolorhover {
+    from {
+        background-color: blueviolet;
+    }
+    to {
+        background-color: cyan;
+    }
+}
+
+.product button a,
+.product button a :visited {
+    text-decoration: none;
+    color: white;
+}
+
+/* carousel */
+.carousel img {
+    margin: auto;
+}
+/* alert*/
+.alert {
+    background-color: rgb(241, 96, 0)
+}
+
+
+
+
+/*mediaqueries van al final*/
+
+@media (min-width: 768px){
+    h1{
+        font-size: 3em;
+    }
+    i{
+        font-size: 2em;
+    }
+    p, li, button {
+        font-size: 1.5em;
+    }
+    .product button {
+        padding: 3% 14%;
+        font-size: 2em;
+    }
+    main img {
+        height: 300px;
+    }
+    main img:hover{
+        height: 320px;
+    }
+}
+@media (min-width: 1024px){
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .product{
+        width: 40%;
+        margin: 4% 0;
+    }
+    main img {
+        height: 200px;
+    }
+    main img:hover{
+        height: 220px;
+    }
+    .menu{
+        display: none;
+    }
+    
+    .inlinelist {
+        margin-top: 4%;
+        display: block;
+        text-align: center;
+    }
+    .inlinelist li {
+        display: inline;
+        font-size: 1.5em;
+    }
+
+}
+@media (min-width: 1480px){
+    h1 {
+        font-size: 5em;
+    }
+    p, li{
+      font-size: 2.5em;
+    }
+    .product {
+        width: 25%;
+    }
+}
+@media (min-width: 1600px) {
+    .product {
+        width: 18%;
+    }
+}
